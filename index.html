@@ -17,6 +17,11 @@ textarea{font:inherit;resize:vertical;min-width:0;width:100%;border:1px solid #d
 @media(max-width:1150px){.product-name{max-width:210px}.topbar{gap:12px}.module-tab{padding:7px 14px}}
 @media(max-width:720px){.topbar{padding:14px 18px}.product-name{max-width:none;width:100%}.module-tabs{flex:1}.module-tab{flex:1;text-align:center;padding:8px 12px}.topbar #saveStatus{font-size:10px}.module-files{min-height:0}.module-files nav{flex:initial}.module-files .search-label,.module-files input[type="search"]{display:none}}
 .topbar{position:sticky;top:0;z-index:20}.summary{top:106px}
+.sidebar{display:grid;grid-template-rows:auto minmax(min-content,1fr) auto;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+.module-files{min-height:min-content}.module-files>:not(nav){flex-shrink:0}
+.sidebar .module-files nav{flex:1 1 0;min-height:80px;height:0;overflow-y:auto}
+.side-bottom{flex-shrink:0}
+@media(max-width:720px){.sidebar{display:flex;overflow:visible}.module-files{flex:0 0 auto;min-height:0}.sidebar .module-files nav{flex:0 0 auto;height:auto;min-height:0;max-height:160px}}
 
 #printReport{display:none}
 @page{size:A4 portrait;margin:10mm}
@@ -368,7 +373,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     if(path==='/api/shutdown')return json({ok:true});
     throw Error('Operação local não encontrada.');
   }
-  window.OfflineApp=Object.freeze({request,version:'4.0.0'});
+  window.OfflineApp=Object.freeze({request,version:'4.0.1'});
 })();
 </script><script>'use strict';
 const $ = s => document.querySelector(s);
